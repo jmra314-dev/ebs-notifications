@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+</head>
+<body>
+    
+    <div class = "sec">
+        <div class = "profCont">
+        <img class = "profile" id="icon_type" src ="">
+        </div>
+        <div  style ="float:right;font-size:8pt;color:gray; font-family:'Raleway'; padding-right:30px;">
+           <ul>
+                 <li class="time" style="padding:2px";float:right;"> ${this.calculateMinutes(item.message.startTime)}
+                 </li>
+                 <li style="padding:2px;float:right;">
+                   <input type="checkbox" id='read' value=${item.id}  ${item.status === "unread" ? 'checked' : 'disabled'}/>
+                 </li>
+                 <br/>
+                 <br/>
+                 <li style="padding:2px; float:right;">
+                  <a id="goToActionLink" href="http://localhost:3000/sm/requestmanager?experimentId=${item.id}" style ="font-family:'Raleway';cursor:pointer;font-family:'Raleway'; font-size:8pt;">
+                 ${item.id % 2 === 0 ? "Go to experiment ->" : "Go to message ->"}
+                 </a>
+                 </li>
+          </ul>
+         </div>
+        <div class = "txt">
+        Hi ${userName} you got a ${item.message.type === "Alert" ? "Notification" : "Message"} from <strong> ${item.message.sender}</strong>
+        </div>
+        <div  class = "sub txt" style="color:gray; font-size:8pt;" >${item.message.message}</div>
+
+        <div   class = "sub txt" style="color:gray; font-size:8pt;" >${item.message.startTime}</div>
+    </div>
+    
+</body>
+</html>

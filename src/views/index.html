@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            font-family: 'Raleway';
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+         .box::-webkit-scrollbar-track
+         {
+             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+             background-color: #F5F5F5;
+           border-radius: 5px;
+           box-shadow: none;
+         }
+         
+         .box::-webkit-scrollbar
+         {
+             width: 20px;
+             background-color: #F5F5F5;
+             border-radius: 0px
+         }
+         
+         .box::-webkit-scrollbar-thumb
+         {
+             background-color: 	#B8B8B8;
+             border: none;
+
+         }
+         
+         .notification{
+           padding-top: 25px;
+           position: relative;
+           display: inline-block;
+         }
+         
+         .number{
+           font-size:8pt;
+           height: 15px;
+           width:  14px;
+           background-color: #d63031;
+           border-radius: 20px;
+           color: white;
+           text-align: center;
+           position: absolute;
+           top: 5px;
+           left: 10px;
+           padding: 3px;
+           border: none;
+         }
+         
+         .number:empty {
+            display: none;
+         }
+         
+         .notBtn{
+           transition: 0.5s;
+           cursor: pointer
+         }
+         
+         .box{
+           width: 500px;
+           height: 0px;
+           border-radius: 10px;
+           transition: 0.5s;
+           position: absolute;
+           overflow-y: scroll;
+           padding: 0;
+           margin-top: 8px;
+           background-color: #fff;
+           -webkit-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.2);
+           -moz-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
+           box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
+           cursor: context-menu;
+         }
+         .notBtn:hover > .box{
+           height: 60vh
+         }
+         
+         .content{
+           padding: 20px;
+           color: black;
+           vertical-align: middle;
+           text-align: left;
+         }
+         
+         .gry{
+           background-color: #F4F4F4;
+         }
+         
+         .top{
+           color: black;
+           padding: 10px
+         }
+         
+         .display{
+           position: relative;
+         }
+         
+         .cont{
+           position: absolute;
+           top: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #fff;
+         }
+         
+         .cont:empty{
+           display: none;
+         }
+         
+         .stick{
+           text-align: center;  
+           display: block;
+           font-size: 50pt;
+           padding-top: 70px;
+           padding-left: 80px
+         }
+         
+         .stick:hover{
+           color: black;
+         }
+         
+         .cent{
+           text-align: center;
+           display: block;
+         }
+/******************************************** notification list style ***********************************************/
+
+ .sec{
+    padding-left: 20px;
+     background-color: #fff;
+     transition: 0.5s;
+   }
+  
+   .sec .profCont{
+     padding-left: 5px;
+ ;  }
+  
+   .sec .profile{
+     width: 20px;
+     float: left;
+     text-align:center;
+     padding-top: 20px;
+   }
+  
+   .sec .txt{
+    color: black;
+     text-align: left;
+     font-size: 10pt;
+     padding: 5px 35px 0px 35px;
+     font-family: 'Raleway';
+     font-weight: 900;
+     word-wrap: break-word;
+     width: 70%;
+
+   }
+  
+   .sub{
+     font-size: 1rem;
+     color: grey;
+   }
+   .sec:hover{
+     border-radius:10px;
+     background-color: #99cfc9;
+   }
+   .sec input#read:checked {
+    background-color: #253;
+    box-shadow: inset 0px 0px 0px 5px #ffffff;
+    transition: 0.5s;
+}
+
+.sec input#read{
+    position: relative;
+    margin-left: 2px;
+    width: 23px;
+    height: 23px;
+    float: left;
+    margin: 1px;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #B8B8B8;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.sec ul{
+  display:block;
+  list-style-type: none;
+  margin:0;
+  padding:0;
+
+}
+/****************************************Shaking styles**************************/
+@-webkit-keyframes shake {
+    0% { -webkit-transform: translate(2px, 1px) rotate(0deg); } 
+    10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+    30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+    40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+    50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+    70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+    80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+    90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+    100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+.shake {
+    -webkit-animation-name: shake;
+    -webkit-animation-duration: 0.5s;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation-iteration-count: infinite;
+}
+.shake {
+    display:inline-block
+}
+    </style>
+  
+</head>
+<body>
+
+    <div class="notification" style="padding-right:15px;">
+    <a href="#">
+        <div class="notBtn" href="#">
+          <img id="icon-bell" style="width:20px; height:20px; position: relative; top:-10px; border-radius:50%;"
+          src='https://firebasestorage.googleapis.com/v0/b/pizzaswebaplication.appspot.com/o/white-notification-bell-icon.png?alt=media&token=106cde4d-b8e9-43d6-95ca-752dc08ff329'/>
+            <div class="number" id="total_number"></div>
+            <div class="box">
+                <div class="display">
+                         <div class="cont" id="list-cont">
+                         </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+</body>
+</html>
