@@ -1,5 +1,6 @@
 {
   "name": "@ebs/notification",
+  "version": "0.0.1",
   "scripts": {
     "start": "webpack serve --port 18181",
     "build": "webpack --mode=production"
